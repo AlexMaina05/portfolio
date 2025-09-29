@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Alessandro Maina - Portfolio</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    .switch-lang { margin: 1em 0; }
+    .switch-lang button { padding: 0.5em 1em; margin-right: 0.5em; font-size: 1em; cursor: pointer; background: #eee; border: 1px solid #ccc; border-radius: 4px; }
+    .switch-lang button.active { background: #28a745; color: #fff; border-color: #28a745; }
+    .lang-it, .lang-en { display: none; }
+    nav ul { list-style: none; padding: 0; }
+    nav li { display: inline; margin-right: 1em; }
+  </style>
+</head>
+<body>
+<div class="switch-lang">
+  <button id="btn-it" class="active" onclick="switchLang('it')">🇮🇹 Italiano</button>
+  <button id="btn-en" onclick="switchLang('en')">🇬🇧 English</button>
+</div>
+
+<nav>
+  <ul>
+    <li><a href="#about">Chi sono / About</a></li>
+    <li><a href="#skills">Competenze / Skills</a></li>
+    <li><a href="#languages">Lingue / Languages</a></li>
+    <li><a href="#interests">Interessi / Interests</a></li>
+    <li><a href="#projects">Progetti / Projects</a></li>
+    <li><a href="#contact">Contatti / Contact</a></li>
+  </ul>
+</nav>
+
+<div class="lang-it">
+  <h1>👋 Ciao, sono <strong>Alessandro</strong></h1>
+  <p>Benvenuto nel mio portfolio! Sono uno sviluppatore web appassionato di tecnologia, con esperienza su HTML, Python e progetti open source.</p>
+  <h2 id="about">👨‍💻 Chi sono</h2>
+  <ul>
+    <li><strong>Nome:</strong> Alessandro</li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
+    <li><strong>Tecnologie principali:</strong> HTML, Python, Web App Development</li>
+    <li><strong>Progetti recenti:</strong> Web app per gestione comande, sistema prenotazioni</li>
+  </ul>
+  <h2 id="skills">🛠 Competenze</h2>
+  <ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Backend:</strong> Python</li>
+    <li><strong>Framework:</strong> Jules (by Google), Flask</li>
+    <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
+    <li><strong>Altro:</strong> Web App Development, Open Source, Deploy su GitHub Pages</li>
+  </ul>
+  <h2 id="languages">🌐 Lingue</h2>
+  <ul>
+    <li><strong>Italiano</strong> (madrelingua)</li>
+    <li><strong>Inglese</strong> (buona conoscenza)</li>
+  </ul>
+  <h2 id="interests">🤝 Interessi personali</h2>
+  <ul>
+    <li>Tecnologia e innovazione</li>
+    <li>Sviluppo di web app</li>
+    <li>Open source & community tech</li>
+    <li>Automazione e strumenti per la produttività</li>
+    <li>Viaggi e scoperta di nuove culture</li>
+    <li>Musica</li>
+  </ul>
+  <h2 id="projects">🚀 I miei principali repository</h2>
+  <ul>
+    <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — Il mio sito personale/portfolio</li>
+    <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test basata su Jules (by Google)</li>
+    <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — Profilo GitHub</li>
+    <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Applicazione per gestione prenotazioni</li>
+    <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evoluzione del progetto “comande”</li>
+  </ul>
+  <h2 id="contact">📫 Contatti</h2>
+  <ul>
+    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
+    <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
+    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
+  </ul>
+  <p><em>Questo portfolio è generato automaticamente con GitHub Pages e Jekyll.</em></p>
+</div>
+
+<div class="lang-en">
+  <h1>👋 Hi, I'm <strong>Alessandro</strong></h1>
+  <p>Welcome to my portfolio! I'm a passionate web developer with experience in HTML, Python and open source projects.</p>
+  <h2 id="about">👨‍💻 About Me</h2>
+  <ul>
+    <li><strong>Name:</strong> Alessandro</li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
+    <li><strong>Main technologies:</strong> HTML, Python, Web App Development</li>
+    <li><strong>Recent projects:</strong> Web app for order management, booking system</li>
+  </ul>
+  <h2 id="skills">🛠 Skills</h2>
+  <ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Backend:</strong> Python</li>
+    <li><strong>Framework:</strong> Jules (by Google), Flask</li>
+    <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
+    <li><strong>Other:</strong> Web App Development, Open Source, Deploy on GitHub Pages</li>
+  </ul>
+  <h2 id="languages">🌐 Languages</h2>
+  <ul>
+    <li><strong>Italian</strong> (native)</li>
+    <li><strong>English</strong> (good proficiency)</li>
+  </ul>
+  <h2 id="interests">🤝 Personal Interests</h2>
+  <ul>
+    <li>Technology and innovation</li>
+    <li>Web app development</li>
+    <li>Open source & tech community</li>
+    <li>Automation and productivity tools</li>
+    <li>Traveling and discovering new cultures</li>
+    <li>Music</li>
+  </ul>
+  <h2 id="projects">🚀 My Main Repositories</h2>
+  <ul>
+    <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — My personal site/portfolio</li>
+    <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test based on Jules (by Google)</li>
+    <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — GitHub Profile</li>
+    <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Booking management application</li>
+    <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evolution of the "comande" project</li>
+  </ul>
+  <h2 id="contact">📫 Contacts</h2>
+  <ul>
+    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
+    <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
+    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
+  </ul>
+  <p><em>This portfolio is automatically generated with GitHub Pages and Jekyll.</em></p>
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.lang-it').forEach(e => e.style.display = lang === 'it' ? 'block' : 'none');
+  document.querySelectorAll('.lang-en').forEach(e => e.style.display = lang === 'en' ? 'block' : 'none');
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+switchLang('it');
+</script>
+</body>
+</html>
