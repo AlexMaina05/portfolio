@@ -3,131 +3,389 @@
 <head>
   <meta charset="UTF-8">
   <title>Alessandro Mainardi - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 2em; }
-    .switch-lang { margin: 1em 0; }
-    .switch-lang button { padding: 0.5em 1em; margin-right: 0.5em; font-size: 1em; cursor: pointer; background: #eee; border: 1px solid #ccc; border-radius: 4px; }
-    .switch-lang button.active { background: #28a745; color: #fff; border-color: #28a745; }
+    :root {
+      --primary: #1a73e8;
+      --secondary: #f5f7fa;
+      --accent: #28a745;
+      --text-main: #222;
+      --text-light: #4a4a4a;
+      --card-bg: #fff;
+      --border-radius: 14px;
+      --shadow: 0 4px 24px rgba(34, 34, 34, 0.07);
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--secondary);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 850px;
+      margin: 3em auto;
+      padding: 2em;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(34, 34, 34, 0.10);
+      border: 4px solid var(--primary);
+      background: #fff;
+    }
+    .profile-info {
+      flex: 1;
+      min-width: 220px;
+    }
+    .profile-info h1 {
+      margin: 0 0 0.3em 0;
+      font-size: 2.1em;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .profile-info p {
+      margin: 0.3em 0 1em 0;
+      color: var(--text-light);
+      font-size: 1.15em;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.2em;
+      align-items: center;
+      margin-top: 0.6em;
+    }
+    .social-icon {
+      width: 39px;
+      height: 39px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #e9ecef;
+      transition: background 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(34,34,34,0.05);
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .social-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--primary);
+      transition: fill 0.2s;
+    }
+    .social-icon:hover {
+      background: var(--primary);
+      transform: scale(1.11) translateY(-2px);
+    }
+    .social-icon:hover svg {
+      fill: #fff;
+    }
+    .switch-lang {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 2em;
+      gap: 0.5em;
+    }
+    .switch-lang button {
+      padding: 0.6em 1.3em;
+      font-size: 1em;
+      cursor: pointer;
+      background: #e9ecef;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      color: var(--text-light);
+      box-shadow: 0 2px 8px rgba(34, 34, 34, 0.03);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .switch-lang button.active,
+    .switch-lang button:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 12px rgba(34,34,34,0.04);
+      margin-bottom: 2em;
+      padding: 0.5em 0;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+    nav li {
+      display: inline;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.05em;
+      transition: color 0.2s;
+      padding: 0.2em 0.5em;
+      border-radius: 6px;
+    }
+    nav a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    h1, h2 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      margin-top: 2em;
+      letter-spacing: -1px;
+    }
+    h1 {
+      font-size: 2.3em;
+      margin-top: 0.7em;
+      margin-bottom: 1em;
+    }
+    h2 {
+      font-size: 1.3em;
+      margin-top: 2em;
+    }
+    p {
+      color: var(--text-light);
+      font-size: 1.14em;
+      margin-bottom: 1.3em;
+    }
+    ul {
+      padding-left: 1.2em;
+      margin-bottom: 1.2em;
+    }
+    li {
+      margin-bottom: 0.6em;
+      font-size: 1.09em;
+      color: var(--text-main);
+    }
+    strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .repo-list a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .repo-list a:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .card-section {
+      background: var(--secondary);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 10px rgba(34,34,34,0.04);
+      margin-bottom: 2em;
+      padding: 1.7em 1.2em;
+    }
     .lang-it, .lang-en { display: none; }
-    nav ul { list-style: none; padding: 0; }
-    nav li { display: inline; margin-right: 1em; }
+    @media (max-width: 900px) {
+      .container { margin: 1em; padding: 1em; }
+      nav ul { gap: 1em; }
+      .profile-header { flex-direction: column; gap: 1em;}
+      .profile-pic { width: 90px; height: 90px;}
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      h2 { font-size: 1.08em; }
+      .container { padding: 0.7em; }
+      .card-section { padding: 1em 0.5em; }
+      .profile-pic { width: 70px; height: 70px;}
+    }
   </style>
 </head>
 <body>
-<div class="switch-lang">
-  <button id="btn-it" class="active" onclick="switchLang('it')">🇮🇹 Italiano</button>
-  <button id="btn-en" onclick="switchLang('en')">🇬🇧 English</button>
+<div class="container">
+  <div class="switch-lang">
+    <button id="btn-it" class="active" onclick="switchLang('it')">🇮🇹 Italiano</button>
+    <button id="btn-en" onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
+  <div class="profile-header">
+    <!-- Cambia src con il tuo percorso foto -->
+    <img src="assets/profile.jpg" alt="Alessandro Mainardi" class="profile-pic">
+    <div class="profile-info">
+      <h1>Alessandro Mainardi</h1>
+      <p>Sviluppatore web appassionato di tecnologia, open source e automazione.<br>Web App • Python • HTML • Community Tech</p>
+      <div class="social-icons">
+        <a class="social-icon" href="https://github.com/AlexMaina05" target="_blank" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.014c0 4.428 2.867 8.189 6.839 9.528.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.152-1.11-1.459-1.11-1.459-.909-.621.069-.609.069-.609 1.004.07 1.532 1.032 1.532 1.032.893 1.531 2.341 1.089 2.91.833.091-.647.35-1.089.636-1.34-2.22-.252-4.555-1.111-4.555-4.945 0-1.092.39-1.987 1.03-2.686-.103-.253-.447-1.271.098-2.65 0 0 .84-.27 2.75 1.026a9.564 9.564 0 0 1 2.5-.336c.849.004 1.705.115 2.504.336 1.91-1.296 2.748-1.026 2.748-1.026.547 1.379.202 2.397.1 2.65.64.699 1.028 1.594 1.028 2.686 0 3.842-2.339 4.689-4.566 4.936.359.309.678.919.678 1.855 0 1.339-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.135 20.2 22 16.442 22 12.014 22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a class="social-icon" href="mailto:maina@alexmaina.dev" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.104 0 2 .896 2 2v12c0 1.104-.896 2-2 2H4c-1.104 0-2-.896-2-2V6c0-1.104.896-2 2-2zm0 2v.511l8 5.017 8-5.017V6H4zm16 2.228-7.446 4.67a2 2 0 0 1-2.108 0L4 8.228V18h16V8.228z"/></svg>
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.75 0-5 2.25-5 5v14c0 2.75 2.25 5 5 5h14c2.75 0 5-2.25 5-5v-14c0-2.75-2.25-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.5c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.5h-3v-5.5c0-1.31-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91v5.59h-3v-10h2.89v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.58v5.61z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#about">Chi sono / About</a></li>
+      <li><a href="#skills">Competenze / Skills</a></li>
+      <li><a href="#languages">Lingue / Languages</a></li>
+      <li><a href="#interests">Interessi / Interests</a></li>
+      <li><a href="#projects">Progetti / Projects</a></li>
+      <li><a href="#contact">Contatti / Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="lang-it">
+    <div class="card-section">
+      <h2 id="about">👨‍💻 Chi sono</h2>
+      <ul>
+        <li><strong>Nome:</strong> Alessandro</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
+        <li><strong>Tecnologie principali:</strong> HTML, Python, Web App Development</li>
+        <li><strong>Progetti recenti:</strong> Web app per gestione comande, sistema prenotazioni</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="skills">🛠 Competenze</h2>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Backend:</strong> Python</li>
+        <li><strong>Framework:</strong> Jules (by Google), Flask</li>
+        <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
+        <li><strong>Altro:</strong> Web App Development, Open Source, Deploy su GitHub Pages</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="languages">🌐 Lingue</h2>
+      <ul>
+        <li><strong>Italiano</strong> (madrelingua)</li>
+        <li><strong>Inglese</strong> (buona conoscenza)</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="interests">🤝 Interessi personali</h2>
+      <ul>
+        <li>Tecnologia e innovazione</li>
+        <li>Sviluppo di web app</li>
+        <li>Open source & community tech</li>
+        <li>Automazione e strumenti per la produttività</li>
+        <li>Viaggi e scoperta di nuove culture</li>
+        <li>Musica</li>
+      </ul>
+    </div>
+
+    <div class="card-section repo-list">
+      <h2 id="projects">🚀 I miei principali repository</h2>
+      <ul>
+        <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — Il mio sito personale/portfolio</li>
+        <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test basata su Jules (by Google)</li>
+        <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — Profilo GitHub</li>
+        <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Applicazione per gestione prenotazioni</li>
+        <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evoluzione del progetto “comande”</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="contact">📫 Contatti</h2>
+      <ul>
+        <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
+        <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
+      </ul>
+      <p><em>Questo portfolio è generato automaticamente con GitHub Pages e Jekyll.</em></p>
+    </div>
+  </div>
+
+  <div class="lang-en">
+    <div class="card-section">
+      <h2 id="about">👨‍💻 About Me</h2>
+      <ul>
+        <li><strong>Name:</strong> Alessandro</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
+        <li><strong>Main technologies:</strong> HTML, Python, Web App Development</li>
+        <li><strong>Recent projects:</strong> Web app for order management, booking system</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="skills">🛠 Skills</h2>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Backend:</strong> Python</li>
+        <li><strong>Framework:</strong> Jules (by Google), Flask</li>
+        <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
+        <li><strong>Other:</strong> Web App Development, Open Source, Deploy on GitHub Pages</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="languages">🌐 Languages</h2>
+      <ul>
+        <li><strong>Italian</strong> (native)</li>
+        <li><strong>English</strong> (good proficiency)</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="interests">🤝 Personal Interests</h2>
+      <ul>
+        <li>Technology and innovation</li>
+        <li>Web app development</li>
+        <li>Open source & tech community</li>
+        <li>Automation and productivity tools</li>
+        <li>Traveling and discovering new cultures</li>
+        <li>Music</li>
+      </ul>
+    </div>
+
+    <div class="card-section repo-list">
+      <h2 id="projects">🚀 My Main Repositories</h2>
+      <ul>
+        <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — My personal site/portfolio</li>
+        <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test based on Jules (by Google)</li>
+        <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — GitHub Profile</li>
+        <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Booking management application</li>
+        <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evolution of the "comande" project</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h2 id="contact">📫 Contacts</h2>
+      <ul>
+        <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
+        <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
+      </ul>
+      <p><em>This portfolio is automatically generated with GitHub Pages and Jekyll.</em></p>
+    </div>
+  </div>
 </div>
-
-<nav>
-  <ul>
-    <li><a href="#about">Chi sono / About</a></li>
-    <li><a href="#skills">Competenze / Skills</a></li>
-    <li><a href="#languages">Lingue / Languages</a></li>
-    <li><a href="#interests">Interessi / Interests</a></li>
-    <li><a href="#projects">Progetti / Projects</a></li>
-    <li><a href="#contact">Contatti / Contact</a></li>
-  </ul>
-</nav>
-
-<div class="lang-it">
-  <h1>👋 Ciao </h1>
-  <p>Benvenuto nel mio portfolio! Sono uno sviluppatore web appassionato di tecnologia, con esperienza su HTML, Python e progetti open source.</p>
-  <h2 id="about">👨‍💻 Chi sono</h2>
-  <ul>
-    <li><strong>Nome:</strong> Alessandro</li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
-    <li><strong>Tecnologie principali:</strong> HTML, Python, Web App Development</li>
-    <li><strong>Progetti recenti:</strong> Web app per gestione comande, sistema prenotazioni</li>
-  </ul>
-  <h2 id="skills">🛠 Competenze</h2>
-  <ul>
-    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
-    <li><strong>Backend:</strong> Python</li>
-    <li><strong>Framework:</strong> Jules (by Google), Flask</li>
-    <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
-    <li><strong>Altro:</strong> Web App Development, Open Source, Deploy su GitHub Pages</li>
-  </ul>
-  <h2 id="languages">🌐 Lingue</h2>
-  <ul>
-    <li><strong>Italiano</strong> (madrelingua)</li>
-    <li><strong>Inglese</strong> (buona conoscenza)</li>
-  </ul>
-  <h2 id="interests">🤝 Interessi personali</h2>
-  <ul>
-    <li>Tecnologia e innovazione</li>
-    <li>Sviluppo di web app</li>
-    <li>Open source & community tech</li>
-    <li>Automazione e strumenti per la produttività</li>
-    <li>Viaggi e scoperta di nuove culture</li>
-    <li>Musica</li>
-  </ul>
-  <h2 id="projects">🚀 I miei principali repository</h2>
-  <ul>
-    <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — Il mio sito personale/portfolio</li>
-    <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test basata su Jules (by Google)</li>
-    <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — Profilo GitHub</li>
-    <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Applicazione per gestione prenotazioni</li>
-    <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evoluzione del progetto “comande”</li>
-  </ul>
-  <h2 id="contact">📫 Contatti</h2>
-  <ul>
-    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
-    <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
-  </ul>
-  <p><em>Questo portfolio è generato automaticamente con GitHub Pages e Jekyll.</em></p>
-</div>
-
-<div class="lang-en">
-  <h1>👋 Hi </h1>
-  <p>Welcome to my portfolio! I'm a passionate web developer with experience in HTML, Python and open source projects.</p>
-  <h2 id="about">👨‍💻 About Me</h2>
-  <ul>
-    <li><strong>Name:</strong> Alessandro</li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">AlexMaina05</a></li>
-    <li><strong>Main technologies:</strong> HTML, Python, Web App Development</li>
-    <li><strong>Recent projects:</strong> Web app for order management, booking system</li>
-  </ul>
-  <h2 id="skills">🛠 Skills</h2>
-  <ul>
-    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
-    <li><strong>Backend:</strong> Python</li>
-    <li><strong>Framework:</strong> Jules (by Google), Flask</li>
-    <li><strong>Tools:</strong> Git, GitHub, Jekyll, VS Code</li>
-    <li><strong>Other:</strong> Web App Development, Open Source, Deploy on GitHub Pages</li>
-  </ul>
-  <h2 id="languages">🌐 Languages</h2>
-  <ul>
-    <li><strong>Italian</strong> (native)</li>
-    <li><strong>English</strong> (good proficiency)</li>
-  </ul>
-  <h2 id="interests">🤝 Personal Interests</h2>
-  <ul>
-    <li>Technology and innovation</li>
-    <li>Web app development</li>
-    <li>Open source & tech community</li>
-    <li>Automation and productivity tools</li>
-    <li>Traveling and discovering new cultures</li>
-    <li>Music</li>
-  </ul>
-  <h2 id="projects">🚀 My Main Repositories</h2>
-  <ul>
-    <li><a href="https://github.com/AlexMaina05/alexmaina05.github.io">alexmaina05.github.io</a> — My personal site/portfolio</li>
-    <li><a href="https://github.com/AlexMaina05/comande">comande</a> — Web app test based on Jules (by Google)</li>
-    <li><a href="https://github.com/AlexMaina05/AlexMaina05">AlexMaina05</a> — GitHub Profile</li>
-    <li><a href="https://github.com/AlexMaina05/Reservations">Reservations</a> — Booking management application</li>
-    <li><a href="https://github.com/AlexMaina05/Comande2.0">Comande2.0</a> — Evolution of the "comande" project</li>
-  </ul>
-  <h2 id="contact">📫 Contacts</h2>
-  <ul>
-    <li><strong>GitHub:</strong> <a href="https://github.com/AlexMaina05">github.com/AlexMaina05</a></li>
-    <li><strong>Email:</strong> <a href="mailto:maina@alexmaina.dev">maina@alexmaina.dev</a></li>
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alessandro-mainardi-ab812823b/">alessandro-mainardi-ab812823b</a></li>
-  </ul>
-  <p><em>This portfolio is automatically generated with GitHub Pages and Jekyll.</em></p>
-</div>
-
 <script>
 function switchLang(lang) {
   document.querySelectorAll('.lang-it').forEach(e => e.style.display = lang === 'it' ? 'block' : 'none');
